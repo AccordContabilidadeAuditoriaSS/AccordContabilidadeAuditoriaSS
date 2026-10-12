@@ -1,165 +1,425 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accord Contabilidade e Auditoria | Fortaleza - CE</title>
-  <meta name="description" content="Accord Contabilidade e Auditoria S/S em Fortaleza-CE. Soluções contábeis e auditoria com mais de 15 anos de tradição. CRC CE-000737/O.">
-  
+  <title>Accord Contabilidade e Auditoria S/S | Fortaleza - CE</title>
+  <meta name="description" content="Accord Contabilidade e Auditoria S/S - Mais de 17 anos de excelência em serviços contábeis, auditoria independente e assessoria tributária em Fortaleza-CE. CRC CE-000737/O.">
+  <meta name="keywords" content="Contabilidade Fortaleza, Auditoria, CRC CE-000737/O, Accord Contabilidade, Simples Nacional, Planejamento Tributario">
+
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Google Fonts (Inter) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts (Plus Jakarta Sans & Playfair Display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --navy-primary: #0b1d3a;
+      --navy-secondary: #11284b;
+      --navy-light: #1d3557;
+      --gold-primary: #c59b27;
+      --gold-light: #d4af37;
+      --gold-hover: #a8821d;
+      --gold-subtle: rgba(197, 155, 39, 0.12);
+      --bg-cream: #fbfbfe;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
-      color: #333333;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      overflow-x: hidden;
     }
 
-    /* Cores Personalizadas */
-    .bg-navy {
-      background-color: #0d233a;
+    h1, h2, h3, .font-heading {
+      font-family: 'Playfair Display', serif;
     }
-    .text-navy {
-      color: #0d233a;
+
+    /* Gradient Backgrounds */
+    .bg-navy-gradient {
+      background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-secondary) 60%, #081427 100%);
     }
-    .bg-gold {
-      background-color: #c59b27;
+
+    .bg-gold-gradient {
+      background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
     }
-    .text-gold {
-      color: #c59b27;
+
+    .bg-light-cream {
+      background-color: var(--bg-cream);
     }
+
+    /* Text Colors */
+    .text-navy { color: var(--navy-primary) !important; }
+    .text-gold { color: var(--gold-primary) !important; }
+    .text-gold-light { color: var(--gold-light) !important; }
+
+    /* Custom Buttons */
     .btn-gold {
-      background-color: #c59b27;
-      color: #ffffff;
-      border: none;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+      color: #ffffff !important;
       font-weight: 600;
-    }
-    .btn-gold:hover {
-      background-color: #a8821d;
-      color: #ffffff;
-    }
-
-    /* Hero Section */
-    .hero-section {
-      background: linear-gradient(135deg, #0d233a 0%, #1a3a5c 100%);
-      color: #ffffff;
-      padding: 100px 0 80px 0;
-    }
-
-    /* Cards de Serviços */
-    .service-card {
-      border: 1px solid #e9ecef;
+      border: none;
+      box-shadow: 0 4px 15px rgba(197, 155, 39, 0.3);
       transition: all 0.3s ease;
-      border-radius: 8px;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      border-color: #c59b27;
     }
 
-    /* Estilo de Ícones grandes */
-    .icon-box {
-      width: 60px;
-      height: 60px;
+    .btn-gold:hover {
+      background: linear-gradient(135deg, var(--gold-hover), var(--gold-primary));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(197, 155, 39, 0.45);
+    }
+
+    .btn-navy-outline {
+      border: 2px solid var(--navy-primary);
+      color: var(--navy-primary);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-navy-outline:hover {
+      background-color: var(--navy-primary);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Glassmorphism Cards */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+    }
+
+    .service-card {
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 16px;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #ffffff;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px rgba(11, 29, 58, 0.08);
+      border-color: var(--gold-primary);
+    }
+
+    /* Custom Icon Badge */
+    .icon-box-gold {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: var(--gold-subtle);
+      color: var(--gold-primary);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50%;
-      background-color: rgba(197, 155, 39, 0.15);
-      color: #c59b27;
       font-size: 1.75rem;
-      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .icon-box-gold {
+      background: var(--gold-primary);
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    /* Badge & Dividers */
+    .section-badge {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 30px;
+      background: var(--gold-subtle);
+      color: var(--gold-primary);
+      display: inline-block;
+    }
+
+    .section-badge-light {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--gold-light);
+    }
+
+    /* Custom Counter & Metric Cards */
+    .metric-card {
+      border-left: 4px solid var(--gold-primary);
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    /* Calculator Custom Controls */
+    .calc-container {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(11, 29, 58, 0.07);
+      border: 1px solid rgba(197, 155, 39, 0.2);
+    }
+
+    /* Scroll To Top Button */
+    #btnScrollTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Custom Toast Message */
+    .toast-custom {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      min-width: 320px;
+      border-radius: 12px;
+      display: none;
     }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-navy sticky-top shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-navy-gradient sticky-top py-3 shadow-sm" id="mainNavbar">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
-        <i class="bi bi-calculator-fill text-gold me-2 fs-3"></i>
-        <span>ACCORD <small class="fw-light d-block fs-6 text-gold">Contabilidade & Auditoria</small></span>
+      <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+        <div class="bg-gold-gradient text-white rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+          <i class="bi bi-bank2 fs-4"></i>
+        </div>
+        <div class="d-flex flex-column">
+          <span class="fw-bold tracking-tight text-white fs-5 leading-none" style="letter-spacing: -0.5px;">ACCORD</span>
+          <span class="text-gold-light fw-medium small" style="font-size: 0.72rem; letter-spacing: 1px;">CONTABILIDADE & AUDITORIA</span>
+        </div>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
-          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nós</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-            <a class="btn btn-gold px-3 py-2 rounded-pill d-inline-flex align-items-center" href="tel:8532612999">
-              <i class="bi bi-telephone-fill me-2"></i> (85) 3261-2999
-            </a>
-          </li>
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 my-3 my-lg-0">
+          <li class="nav-item"><a class="nav-link px-2 active fw-medium" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link px-2 fw-medium" href="#diagnostico">Simulador Fiscal</a></li>
+          <li class="nav-item"><a class="nav-link px-2 fw-medium" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link px-2 fw-medium" href="#sobre">Sobre a Accord</a></li>
+          <li class="nav-item"><a class="nav-link px-2 fw-medium" href="#diferenciais">Diferenciais</a></li>
+          <li class="nav-item"><a class="nav-link px-2 fw-medium" href="#contato">Contato</a></li>
         </ul>
+        <div class="d-flex align-items-center gap-2 ms-lg-3">
+          <a href="tel:8532612999" class="btn btn-gold rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2">
+            <i class="bi bi-telephone-fill"></i>
+            <span>(85) 3261-2999</span>
+          </a>
+        </div>
       </div>
     </div>
   </nav>
 
   <!-- HERO SECTION -->
-  <section id="inicio" class="hero-section text-center text-lg-start">
-    <div class="container">
-      <div class="row align-items-center">
+  <section id="inicio" class="bg-navy-gradient text-white py-5 position-relative overflow-hidden">
+    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10 pointer-events-none" style="background-image: radial-gradient(#c59b27 1px, transparent 1px); background-size: 24px 24px;"></div>
+    
+    <div class="container py-lg-5 position-relative z-1">
+      <div class="row align-items-center gy-5">
         <div class="col-lg-7">
-          <span class="badge bg-gold text-dark px-3 py-2 mb-3 fw-bold text-uppercase">Tradição & Eficiência</span>
-          <h1 class="display-4 fw-bold mb-3">Segurança contábil e auditoria estratégica para o seu negócio</h1>
-          <p class="lead text-light opacity-75 mb-4">
-            Há mais de 17 anos auxiliando empresas a manterem a conformidade fiscal, eficiência tributária e crescimento sustentável em Fortaleza e todo o Ceará.
+          <span class="section-badge section-badge-light mb-3">
+            <i class="bi bi-shield-check me-1"></i> Tradição & Regularidade no CRC-CE
+          </span>
+          <h1 class="display-4 fw-bold text-white mb-3 lh-sm">
+            Soluções Contábeis & Auditoria com Mais de <span class="text-gold-light">17 Anos</span> de Tradição
+          </h1>
+          <p class="lead text-light opacity-75 mb-4 pe-lg-4 fs-5">
+            A <strong>Accord Contabilidade e Auditoria S/S</strong> oferece governança fiscal, auditoria preventiva e suporte estratégico integral para otimizar os resultados da sua empresa em Fortaleza e em todo o Ceará.
           </p>
-          <div class="d-flex flex-column flex-sm-row gap-3">
-            <a href="#contato" class="btn btn-gold btn-lg px-4">Fale com um Especialista</a>
-            <a href="#sobre" class="btn btn-outline-light btn-lg px-4">Conheça a Accord</a>
+
+          <div class="d-flex flex-wrap gap-3 mb-5">
+            <a href="#diagnostico" class="btn btn-gold btn-lg rounded-pill px-4 py-3 d-inline-flex align-items-center gap-2">
+              <span>Simular Diagnóstico Fiscal</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="#contato" class="btn btn-outline-light btn-lg rounded-pill px-4 py-3">
+              Falar com Sócio-Administrador
+            </a>
+          </div>
+
+          <!-- Highlight Badges -->
+          <div class="row g-3 pt-3 border-top border-white border-opacity-10">
+            <div class="col-6 col-sm-4">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-patch-check-fill text-gold fs-4"></i>
+                <div>
+                  <div class="fw-bold fs-6">CRC CE-000737/O</div>
+                  <small class="text-white opacity-75">Registro Ativo</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-4">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-award-fill text-gold fs-4"></i>
+                <div>
+                  <div class="fw-bold fs-6">Fundada em 2009</div>
+                  <small class="text-white opacity-75">17+ Anos no Mercado</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-4">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-building-check text-gold fs-4"></i>
+                <div>
+                  <div class="fw-bold fs-6">Simples Nacional</div>
+                  <small class="text-white opacity-75">Especialistas PME</small>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-lg-5 mt-5 mt-lg-0 text-center">
-          <div class="p-4 bg-white text-dark rounded-4 shadow-lg border-top border-5 border-gold">
-            <i class="bi bi-shield-check text-navy display-1 mb-2"></i>
-            <h4 class="fw-bold text-navy">Registro Ativo CRC</h4>
-            <p class="text-muted mb-2">Conselho Regional de Contabilidade do Ceará</p>
-            <span class="badge bg-navy text-white fs-6 py-2 px-3">CRC: CE-000737/O</span>
+
+        <!-- Hero Card -->
+        <div class="col-lg-5">
+          <div class="glass-card p-4 p-md-5 text-center shadow-lg position-relative">
+            <div class="position-absolute top-0 end-0 m-3">
+              <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 rounded-pill px-3 py-2">
+                <i class="bi bi-circle-fill me-1 small"></i> Empresa Ativa
+              </span>
+            </div>
+
+            <div class="bg-gold-gradient text-white rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center shadow" style="width: 80px; height: 80px;">
+              <i class="bi bi-award fs-1"></i>
+            </div>
+
+            <h3 class="h4 text-white fw-bold mb-2">Accord Contabilidade</h3>
+            <p class="text-light opacity-75 small mb-4">Sociedade Simples Pura | CNPJ 10.664.588/0001-31</p>
+
+            <div class="bg-white bg-opacity-10 rounded-3 p-3 text-start mb-4">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-light opacity-75 small">Data de Abertura:</span>
+                <strong class="text-white small">16/02/2009</strong>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-light opacity-75 small">CNAE Principal:</span>
+                <strong class="text-gold-light small">69.20-6-01 (Contabilidade)</strong>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="text-light opacity-75 small">Sede Principal:</span>
+                <strong class="text-white small">Fortaleza - CE</strong>
+              </div>
+            </div>
+
+            <a href="#sobre" class="btn btn-gold w-100 rounded-pill py-2 text-uppercase fw-bold text-xs" style="letter-spacing: 1px;">
+              Ver Dados Institucionais <i class="bi bi-chevron-down ms-1"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- NÚMEROS / DESTAQUES -->
-  <section class="py-4 bg-light border-bottom">
-    <div class="container">
-      <div class="row text-center gy-3">
-        <div class="col-md-4">
-          <div class="d-flex justify-content-center align-items-center gap-3">
-            <i class="bi bi-calendar-check fs-1 text-gold"></i>
-            <div class="text-start">
-              <h4 class="fw-bold mb-0 text-navy">Desde 2009</h4>
-              <small class="text-muted">Mais de 17 anos de mercado</small>
-            </div>
-          </div>
+  <!-- SIMULADOR INTERATIVO -->
+  <section id="diagnostico" class="py-5 bg-light-cream">
+    <div class="container py-4">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <span class="section-badge mb-2">Ferramenta Interativa</span>
+          <h2 class="display-6 fw-bold text-navy mb-3">Simulador de Diagnóstico Contábil & Fiscal</h2>
+          <p class="text-muted fs-6">
+            Selecione o perfil do seu negócio e descubra a modalidade contábil ideal e as recomendações de serviços fornecidas pela Accord.
+          </p>
         </div>
-        <div class="col-md-4">
-          <div class="d-flex justify-content-center align-items-center gap-3">
-            <i class="bi bi-check-circle-fill fs-1 text-gold"></i>
-            <div class="text-start">
-              <h4 class="fw-bold mb-0 text-navy">Optante Simples</h4>
-              <small class="text-muted">Soluções sob medida para PMEs</small>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="d-flex justify-content-center align-items-center gap-3">
-            <i class="bi bi-geo-alt-fill fs-1 text-gold"></i>
-            <div class="text-start">
-              <h4 class="fw-bold mb-0 text-navy">Fortaleza - CE</h4>
-              <small class="text-muted">Bairro Patriolino Ribeiro</small>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="calc-container p-4 p-md-5">
+            <form id="calcForm" onsubmit="event.preventDefault(); calculateDiagnosis();">
+              <div class="row g-4">
+                <!-- Select Business Type -->
+                <div class="col-md-6">
+                  <label class="form-label fw-bold text-navy"> Segmento de Atuação</label>
+                  <select class="form-select form-select-lg rounded-3" id="calcSegment" required>
+                    <option value="" selected disabled>Selecione seu segmento...</option>
+                    <option value="servicos">Prestação de Serviços</option>
+                    <option value="comercio">Comércio e Varejo</option>
+                    <option value="industria">Indústria e Produção</option>
+                    <option value="saude">Saúde & Clínicas Médicas</option>
+                    <option value="tecnologia">Tecnologia & Startups</option>
+                  </select>
+                </div>
+
+                <!-- Select Revenue Bracket -->
+                <div class="col-md-6">
+                  <label class="form-label fw-bold text-navy"> Faturamento Mensal Estimado</label>
+                  <select class="form-select form-select-lg rounded-3" id="calcRevenue" required>
+                    <option value="" selected disabled>Selecione a faixa de faturamento...</option>
+                    <option value="mei">Até R$ 6.750/mês (Até R$ 81 mil/ano)</option>
+                    <option value="micro">Até R$ 30.000/mês (Até R$ 360 mil/ano)</option>
+                    <option value="pequena">R$ 30.000 a R$ 400.000/mês (Até R$ 4,8 milhões/ano)</option>
+                    <option value="media">Acima de R$ 400.000/mês (Lucro Presumido / Real)</option>
+                  </select>
+                </div>
+
+                <!-- Checkbox Features Needed -->
+                <div class="col-12">
+                  <label class="form-label fw-bold text-navy mb-2"> Necessidades Principais (Opcional):</label>
+                  <div class="d-flex flex-wrap gap-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="checkAuditoria" value="Auditoria">
+                      <label class="form-check-label text-dark" for="checkAuditoria">Auditoria Fiscal/Demonstrativos</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="checkFolha" value="Folha de Pagamento">
+                      <label class="form-check-label text-dark" for="checkFolha">Gestão de Folha & eSocial</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="checkAbertura" value="Alteração/Abertura">
+                      <label class="form-check-label text-dark" for="checkAbertura">Abertura ou Alteração Contratual</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 text-center mt-4">
+                  <button type="submit" class="btn btn-gold btn-lg rounded-pill px-5 py-3 fw-bold">
+                    <i class="bi bi-calculator me-2"></i> Gerar Diagnóstico
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="calcResult" class="mt-5 p-4 rounded-4 bg-navy-gradient text-white d-none shadow">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="badge bg-gold text-dark font-mono">RECOMENDAÇÃO PERSONALIZADA</span>
+                    <span class="badge bg-white bg-opacity-20 text-white" id="resRegime">Simples Nacional</span>
+                  </div>
+                  <h4 class="h3 fw-bold text-gold-light mb-2" id="resTitle">Plano de Assessoria Estratégica</h4>
+                  <p class="text-light opacity-90 mb-3" id="resDesc">
+                    Sua empresa se enquadra no perfil de alta eficiência para simplificação tributária com acompanhamento mensal de balancetes e auditoria contábil periódica.
+                  </p>
+                  <div id="resServices" class="d-flex flex-wrap gap-2 mb-3"></div>
+                </div>
+                <div class="col-md-4 text-center text-md-end mt-3 mt-md-0 border-start border-white border-opacity-10 ps-md-4">
+                  <p class="small text-white opacity-75 mb-2">Agende uma conversa com nossos sócios:</p>
+                  <button onclick="contactFromCalc()" class="btn btn-gold rounded-pill px-4 py-2 w-100 fw-bold">
+                    <i class="bi bi-whatsapp me-2"></i> Solicitar Proposta
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -170,112 +430,240 @@
   <!-- SERVIÇOS -->
   <section id="servicos" class="py-5">
     <div class="container py-4">
-      <div class="text-center mb-5">
-        <h6 class="text-gold fw-bold text-uppercase">O que fazemos</h6>
-        <h2 class="fw-bold text-navy">Nossas Soluções Contábeis e Auditoria</h2>
-        <p class="text-muted">Atendimento completo para garantir a conformidade e evolução da sua empresa.</p>
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <span class="section-badge mb-2">Especialidades</span>
+          <h2 class="display-6 fw-bold text-navy mb-3">Soluções Contábeis de Alta Performance</h2>
+          <p class="text-muted">
+            Atendimento especializado para assegurar a saúde financeira, o cumprimento fiscal e o desenvolvimento sustentável do seu negócio.
+          </p>
+        </div>
       </div>
 
       <div class="row g-4">
         <!-- Serviço 1 -->
         <div class="col-md-6 col-lg-3">
-          <div class="card h-100 p-4 service-card text-center">
-            <div class="icon-box mx-auto">
-              <i class="bi bi-journal-bookmark-fill"></i>
+          <div class="service-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="icon-box-gold mb-4">
+                <i class="bi bi-journal-check"></i>
+              </div>
+              <h3 class="h5 fw-bold text-navy mb-3">Contabilidade Eletrônica & BPO</h3>
+              <p class="text-muted small mb-4">
+                Escrituração contábil e fiscal completa, elaboração de balancetes mensais, balanço patrimonial, DRE e apuração rigorosa de tributos.
+              </p>
             </div>
-            <h5 class="fw-bold text-navy">Contabilidade Geral</h5>
-            <p class="text-muted fs-7">Escrituração contábil, elaboração de balancetes, balanços patrimoniais e demonstrações financeiras precisas.</p>
+            <ul class="list-unstyled small text-muted border-top pt-3 mb-0">
+              <li class="mb-2"><i class="bi bi-check2 text-gold me-2"></i>DRE & Balanço Patrimonial</li>
+              <li class="mb-2"><i class="bi bi-check2 text-gold me-2"></i>SPED Contábil e Fiscal</li>
+              <li><i class="bi bi-check2 text-gold me-2"></i>Conciliação BANCÁRIA / BPO</li>
+            </ul>
           </div>
         </div>
 
         <!-- Serviço 2 -->
         <div class="col-md-6 col-lg-3">
-          <div class="card h-100 p-4 service-card text-center">
-            <div class="icon-box mx-auto">
-              <i class="bi bi-search"></i>
+          <div class="service-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="icon-box-gold mb-4">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h3 class="h5 fw-bold text-navy mb-3">Auditoria Independente</h3>
+              <p class="text-muted small mb-4">
+                Exame e validação das demonstrações financeiras, avaliação de controles internos e diagnóstico preventivo contra riscos fiscais.
+              </p>
             </div>
-            <h5 class="fw-bold text-navy">Auditoria Independente</h5>
-            <p class="text-muted fs-7">Análise detalhada de processos contábeis para verificação de conformidade, mitigação de riscos e integridade de dados.</p>
+            <ul class="list-unstyled small text-muted border-top pt-3 mb-0">
+              <li class="mb-2"><i class="bi bi-check2 text-gold me-2"></i>Auditoria de Balanço</li>
+              <li class="mb-2"><i class="bi bi-check2 text-gold me-2"></i>Auditoria Preventiva Tax</li>
+              <li><i class="bi bi-check2 text-gold me-2"></i>Avaliação de Controles Internos</li>
+            </ul>
           </div>
         </div>
 
         <!-- Serviço 3 -->
         <div class="col-md-6 col-lg-3">
-          <div class="card h-100 p-4 service-card text-center">
-            <div class="icon-box mx-auto">
-              <i class="bi bi-receipt"></i>
+          <div class="service-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="icon-box-gold mb-4">
+                <i class="bi bi-calculator"></i>
+              </div>
+              <h3 class="h5 fw-bold text-navy mb-3">Planejamento Tributário</h3>
+              <p class="text-muted small mb-4">
+                Estudo aprofundado para enquadramento no regime mais vantajoso (Simples Nacional, Lucro Presumido ou Lucro Real).
+              </p>
             </div>
-            <h5 class="fw-bold text-navy">Assessoria Fiscal</h5>
-            <p class="text-muted fs-7">Apuração de impostos, orientação tributária, planejamento fiscal e entrega de obrigações acessórias sem complicações.</p>
+            <ul class="list-unstyled small text-muted border-top pt-3 mb-0">
+              <li class="mb-2"><i class="bi bi-check2 text-gold me-2"></i>Redução Legal de Impostos</li>
+              <li class="mb-2"><i class="bi bi-check2 text-gold me-2"></i>Gestão de Simples Nacional</li>
+              <li><i class="bi bi-check2 text-gold me-2"></i>Recuperação de Créditos</li>
+            </ul>
           </div>
         </div>
 
         <!-- Serviço 4 -->
         <div class="col-md-6 col-lg-3">
-          <div class="card h-100 p-4 service-card text-center">
-            <div class="icon-box mx-auto">
-              <i class="bi bi-building-gear"></i>
+          <div class="service-card p-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="icon-box-gold mb-4">
+                <i class="bi bi-diagram-3"></i>
+              </div>
+              <h3 class="h5 fw-bold text-navy mb-3">Societário & Legalização</h3>
+              <p class="text-muted small mb-4">
+                Abertura, alteração contratual, transformação de naturezas jurídicas, reorganização societária e emissão de Certidões Negativas.
+              </p>
             </div>
-            <h5 class="fw-bold text-navy">Legalização & Societário</h5>
-            <p class="text-muted fs-7">Abertura, alteração de contratos sociais, regularização de empresas e assessoria na obtenção de certidões.</p>
+            <ul class="list-unstyled small text-muted border-top pt-3 mb-0">
+              <li class="mb-2"><i class="bi bi-check2 text-gold me-2"></i>Constituição e Regularização</li>
+              <li class="mb-2"><i class="bi bi-check2 text-gold me-2"></i>Alterações Contratuais</li>
+              <li><i class="bi bi-check2 text-gold me-2"></i>CNDs e Inscrições Estaduais</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SOBRE A EMPRESA -->
-  <section id="sobre" class="py-5 bg-light">
+  <!-- SOBRE NÓS -->
+  <section id="sobre" class="py-5 bg-light-cream">
     <div class="container py-4">
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <h6 class="text-gold fw-bold text-uppercase">Sobre a Accord</h6>
-          <h2 class="fw-bold text-navy mb-3">Compromisso, Ética e Transparência Contábil</h2>
-          <p class="text-muted">
-            Fundada em <strong>16 de fevereiro de 2009</strong>, a <strong>Accord Contabilidade e Auditoria S/S</strong> consolidou-se no mercado cearense oferecendo serviços contábeis e de auditoria com alto padrão de excelência.
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="section-badge mb-2">Nossa Trajetória</span>
+          <h2 class="display-6 fw-bold text-navy mb-4">17 Anos Construindo Relações de Confiança em Fortaleza</h2>
+          <p class="text-muted mb-3 fs-6">
+            Fundada em <strong>16 de fevereiro de 2009</strong>, a <strong>Accord Contabilidade e Auditoria S/S</strong> consolidou-se como referência de ética e rigor técnico no Ceará.
           </p>
-          <p class="text-muted">
-            Atuando sob o registro <strong>CRC CE-000737/O</strong>, a empresa é gerida por profissionais experientes comprometidos com a integridade das informações financeiras de seus clientes.
+          <p class="text-muted mb-4 fs-6">
+            Atuamos como Sociedade Simples Pura sob a regência de contadores qualificados e registrados no Conselho Regional de Contabilidade (<strong>CRC CE-000737/O</strong>), oferecendo soluções personalizadas para micro, pequenas e médias empresas.
           </p>
-          
-          <div class="mt-4">
-            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-people-fill text-gold me-2"></i> Quadro de Sócios & Administradores</h5>
-            <ul class="list-group list-group-flush rounded-3">
-              <li class="list-group-item bg-transparent"><i class="bi bi-person-check-fill text-navy me-2"></i> <strong>Luiz de Gonzaga Lima Santos Filho</strong> - <small class="text-muted">Sócio-Administrador</small></li>
-              <li class="list-group-item bg-transparent"><i class="bi bi-person-check-fill text-navy me-2"></i> <strong>Rafael Portela Ramos</strong> - <small class="text-muted">Sócio-Administrador</small></li>
-            </ul>
+
+          <!-- Sócios Administradores Cards -->
+          <h3 class="h5 fw-bold text-navy mb-3">Quadro de Sócios e Administradores</h3>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6">
+              <div class="p-3 bg-white rounded-3 border border-1 border-light shadow-sm d-flex align-items-center gap-3">
+                <div class="bg-navy-gradient text-gold p-2 rounded-circle">
+                  <i class="bi bi-person-badge fs-4"></i>
+                </div>
+                <div>
+                  <h4 class="h6 fw-bold text-navy mb-0">Luiz de Gonzaga L. S. Filho</h4>
+                  <small class="text-muted d-block">Sócio-Administrador</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="p-3 bg-white rounded-3 border border-1 border-light shadow-sm d-flex align-items-center gap-3">
+                <div class="bg-navy-gradient text-gold p-2 rounded-circle">
+                  <i class="bi bi-person-badge fs-4"></i>
+                </div>
+                <div>
+                  <h4 class="h6 fw-bold text-navy mb-0">Rafael Portela Ramos</h4>
+                  <small class="text-muted d-block">Sócio-Administrador</small>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
+        <!-- Ficha da Empresa Card -->
         <div class="col-lg-6">
-          <div class="card border-0 shadow-sm p-4 bg-white">
-            <h5 class="fw-bold text-navy mb-3 border-bottom pb-2"><i class="bi bi-info-circle-fill text-gold me-2"></i> Informações Institucionais</h5>
+          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border border-gold border-opacity-25">
+            <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+              <div>
+                <h3 class="h5 fw-bold text-navy mb-0">Dados Institucionais de Transparência</h3>
+                <small class="text-muted">Informações Oficiais Receita Federal</small>
+              </div>
+              <span class="badge bg-gold text-dark fw-bold">MATRIZ ATIVA</span>
+            </div>
+
             <div class="row g-3">
-              <div class="col-6">
-                <small class="text-muted d-block">Razão Social</small>
-                <span class="fw-bold text-navy">Accord Contabilidade e Auditoria S/S</span>
+              <div class="col-sm-6">
+                <label class="small text-muted d-block">Razão Social / Nome Fantasia</label>
+                <strong class="text-navy">Accord Contabilidade e Auditoria S/S</strong>
               </div>
-              <div class="col-6">
-                <small class="text-muted d-block">CNPJ</small>
-                <span class="fw-bold text-navy">10.664.588/0001-31</span>
+              <div class="col-sm-6">
+                <label class="small text-muted d-block">CNPJ</label>
+                <strong class="text-navy font-mono">10.664.588/0001-31</strong>
               </div>
-              <div class="col-6">
-                <small class="text-muted d-block">Natureza Jurídica</small>
-                <span class="fw-bold text-navy">Sociedade Simples Pura</span>
+              <div class="col-sm-6">
+                <label class="small text-muted d-block">Registro Profissional</label>
+                <strong class="text-gold">CRC CE-000737/O</strong>
               </div>
-              <div class="col-6">
-                <small class="text-muted d-block">Regime de Tributação</small>
-                <span class="fw-bold text-navy">Simples Nacional</span>
+              <div class="col-sm-6">
+                <label class="small text-muted d-block">Natureza Jurídica</label>
+                <strong class="text-navy">Sociedade Simples Pura</strong>
               </div>
-              <div class="col-6">
-                <small class="text-muted d-block">CNAE Principal</small>
-                <span class="fw-bold text-navy">69.20-6-01 (Contabilidade)</span>
+              <div class="col-sm-6">
+                <label class="small text-muted d-block">Porte / Regime</label>
+                <strong class="text-navy">Micro Empresa (Simples)</strong>
               </div>
-              <div class="col-6">
-                <small class="text-muted d-block">Situação Cadastral</small>
-                <span class="badge bg-success">Ativa</span>
+              <div class="col-sm-6">
+                <label class="small text-muted d-block">Opção Simples desde</label>
+                <strong class="text-navy">16/02/2009</strong>
+              </div>
+              <div class="col-sm-6">
+                <label class="small text-muted d-block">Capital Social Subscrito</label>
+                <strong class="text-navy">R$ 10.000,00</strong>
+              </div>
+              <div class="col-sm-6">
+                <label class="small text-muted d-block">CNAE Fiscal Principal</label>
+                <strong class="text-navy">69.20-6-01 - Contabilidade</strong>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS COMPETITIVOS -->
+  <section id="diferenciais" class="py-5 bg-navy-gradient text-white position-relative">
+    <div class="container py-4 position-relative z-1">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <span class="section-badge section-badge-light mb-2">Por Que Escolher a Accord</span>
+          <h2 class="display-6 fw-bold text-white mb-3">Excelência, Segurança e Proximidade</h2>
+          <p class="text-light opacity-75">
+            Descubra como nossa atuação técnica protege o patrimônio da sua empresa e potencializa o seu crescimento.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="glass-card p-4 h-100">
+            <div class="text-gold fs-1 mb-3">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h3 class="h5 fw-bold text-white mb-2">Segurança Jurídica & Fiscal</h3>
+            <p class="text-light opacity-75 small mb-0">
+              Rigoroso cumprimento de prazos e obrigações acessórias, blindando sua empresa contra multas e sanções administrativas.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="glass-card p-4 h-100">
+            <div class="text-gold fs-1 mb-3">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h3 class="h5 fw-bold text-white mb-2">Atendimento Direto com Sócios</h3>
+            <p class="text-light opacity-75 small mb-0">
+              Comunicação ágil e sem intermediários. Seus problemas analisados diretamente por profissionais seniores experientes.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="glass-card p-4 h-100">
+            <div class="text-gold fs-1 mb-3">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h3 class="h5 fw-bold text-white mb-2">Visão Consultiva e Estratégica</h3>
+            <p class="text-light opacity-75 small mb-0">
+              Mais do que guias de impostos, fornecemos relatórios e indicadores para tomada de decisão consciente.
+            </p>
           </div>
         </div>
       </div>
@@ -285,94 +673,128 @@
   <!-- CONTATO & LOCALIZAÇÃO -->
   <section id="contato" class="py-5">
     <div class="container py-4">
-      <div class="text-center mb-5">
-        <h6 class="text-gold fw-bold text-uppercase">Fale Conosco</h6>
-        <h2 class="fw-bold text-navy">Estamos Prontos para Atender Sua Empresa</h2>
-        <p class="text-muted">Entre em contato por telefone, e-mail ou faça-nos uma visita.</p>
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <span class="section-badge mb-2">Canais de Atendimento</span>
+          <h2 class="display-6 fw-bold text-navy mb-3">Fale Conosco</h2>
+          <p class="text-muted">
+            Nossa equipe está pronta para responder suas dúvidas e elaborar uma proposta personalizada para sua empresa.
+          </p>
+        </div>
       </div>
 
       <div class="row g-4">
         <!-- Informações de Contato -->
         <div class="col-lg-5">
-          <div class="bg-navy text-white p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+          <div class="bg-navy-gradient text-white p-4 p-md-5 rounded-4 h-100 d-flex flex-column justify-content-between shadow">
             <div>
-              <h4 class="fw-bold text-gold mb-4">Canais de Atendimento</h4>
-              
-              <div class="d-flex align-items-start mb-4">
-                <i class="bi bi-geo-alt-fill text-gold fs-3 me-3"></i>
+              <h3 class="h4 fw-bold text-gold-light mb-4">Informações de Contato</h3>
+
+              <div class="d-flex align-items-start gap-3 mb-4">
+                <div class="bg-white bg-opacity-10 p-2 rounded-3 text-gold">
+                  <i class="bi bi-geo-alt-fill fs-4"></i>
+                </div>
                 <div>
-                  <h6 class="fw-bold mb-1">Endereço:</h6>
-                  <p class="mb-0 text-light opacity-75">
-                    Rua Jaime Pinheiro, 21<br>
-                    Bairro Patriolino Ribeiro<br>
-                    Fortaleza - CE | CEP: 60810-250
+                  <h4 class="h6 fw-bold text-white mb-1">Endereço da Sede</h4>
+                  <p class="text-light opacity-75 small mb-0">
+                    Rua Jaime Pinheiro, 21 - Patriolino Ribeiro<br>
+                    Fortaleza - CE | CEP 60810-250
                   </p>
                 </div>
               </div>
 
-              <div class="d-flex align-items-start mb-4">
-                <i class="bi bi-telephone-fill text-gold fs-3 me-3"></i>
+              <div class="d-flex align-items-start gap-3 mb-4">
+                <div class="bg-white bg-opacity-10 p-2 rounded-3 text-gold">
+                  <i class="bi bi-telephone-fill fs-4"></i>
+                </div>
                 <div>
-                  <h6 class="fw-bold mb-1">Telefone:</h6>
+                  <h4 class="h6 fw-bold text-white mb-1">Telefone Fixo</h4>
                   <p class="mb-0">
-                    <a href="tel:8532612999" class="text-light text-decoration-none opacity-75">(85) 3261-2999</a>
+                    <a href="tel:8532612999" class="text-light text-decoration-none opacity-90 hover-gold">
+                      (85) 3261-2999
+                    </a>
                   </p>
                 </div>
               </div>
 
-              <div class="d-flex align-items-start mb-4">
-                <i class="bi bi-envelope-fill text-gold fs-3 me-3"></i>
+              <div class="d-flex align-items-start gap-3 mb-4">
+                <div class="bg-white bg-opacity-10 p-2 rounded-3 text-gold">
+                  <i class="bi bi-envelope-at-fill fs-4"></i>
+                </div>
                 <div>
-                  <h6 class="fw-bold mb-1">E-mail:</h6>
+                  <h4 class="h6 fw-bold text-white mb-1">E-mail Institucional</h4>
                   <p class="mb-0">
-                    <a href="mailto:elianadecarvalho@tmaenergiasolar.com" class="text-light text-decoration-none opacity-75">elianadecarvalho@tmaenergiasolar.com</a>
+                    <a href="mailto:elianadecarvalho@tmaenergiasolar.com" class="text-light text-decoration-none opacity-90 small hover-gold text-break">
+                      elianadecarvalho@tmaenergiasolar.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-start gap-3">
+                <div class="bg-white bg-opacity-10 p-2 rounded-3 text-gold">
+                  <i class="bi bi-clock-fill fs-4"></i>
+                </div>
+                <div>
+                  <h4 class="h6 fw-bold text-white mb-1">Horário de Atendimento</h4>
+                  <p class="text-light opacity-75 small mb-0">
+                    Segunda a Sexta: 08:00h às 18:00h
                   </p>
                 </div>
               </div>
             </div>
 
-            <div class="pt-3 border-top border-secondary">
-              <a href="https://maps.google.com/?q=Rua+Jaime+Pinheiro+21+Patriolino+Ribeiro+Fortaleza+CE" target="_blank" class="btn btn-gold w-100">
+            <div class="mt-4 pt-4 border-top border-white border-opacity-10">
+              <a href="https://maps.google.com/?q=Rua+Jaime+Pinheiro+21+Patriolino+Ribeiro+Fortaleza+CE" target="_blank" rel="noopener noreferrer" class="btn btn-gold w-100 rounded-pill py-2">
                 <i class="bi bi-map-fill me-2"></i> Abrir no Google Maps
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Formulário de Contato -->
+        <!-- Form de Contato Interativo -->
         <div class="col-lg-7">
-          <div class="card border-0 shadow-sm p-4">
-            <h4 class="fw-bold text-navy mb-3">Envie uma Mensagem</h4>
-            <form>
+          <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border">
+            <h3 class="h4 fw-bold text-navy mb-2">Envie uma Mensagem</h3>
+            <p class="text-muted small mb-4">Preencha o formulário abaixo para agendar um atendimento técnico.</p>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
               <div class="row g-3">
                 <div class="col-md-6">
-                  <label class="form-label">Nome Completo</label>
-                  <input type="text" class="form-control" placeholder="Seu nome" required>
+                  <label class="form-label fw-bold small text-navy">Seu Nome *</label>
+                  <input type="text" class="form-control rounded-3" id="formName" required placeholder="Ex: João Silva">
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">E-mail</label>
-                  <input type="email" class="form-control" placeholder="seu@email.com" required>
+                  <label class="form-label fw-bold small text-navy">Nome da Empresa</label>
+                  <input type="text" class="form-control rounded-3" id="formCompany" placeholder="Ex: Silva Serviços LTDA">
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">Telefone / WhatsApp</label>
-                  <input type="tel" class="form-control" placeholder="(85) 90000-0000">
+                  <label class="form-label fw-bold small text-navy">E-mail *</label>
+                  <input type="email" class="form-control rounded-3" id="formEmail" required placeholder="seu@email.com">
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">Assunto</label>
-                  <select class="form-select">
-                    <option selected>Selecione um assunto</option>
-                    <option>Contabilidade</option>
-                    <option>Auditoria</option>
-                    <option>Abertura/Alteração de Empresa</option>
-                    <option>Outros</option>
+                  <label class="form-label fw-bold small text-navy">Telefone / WhatsApp *</label>
+                  <input type="tel" class="form-control rounded-3" id="formPhone" required placeholder="(85) 99999-9999">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-bold small text-navy">Assunto Principal</label>
+                  <select class="form-select rounded-3" id="formSubject">
+                    <option selected>Selecione o serviço desejado...</option>
+                    <option>Contabilidade Completa para PME</option>
+                    <option>Serviços de Auditoria Independente</option>
+                    <option>Planejamento Tributário / Troca de Contador</option>
+                    <option>Abertura ou Regularização de Empresa</option>
+                    <option>Outros Assuntos</option>
                   </select>
                 </div>
                 <div class="col-12">
-                  <label class="form-label">Mensagem</label>
-                  <textarea class="form-control" rows="4" placeholder="Como podemos ajudar sua empresa?" required></textarea>
+                  <label class="form-label fw-bold small text-navy">Sua Mensagem *</label>
+                  <textarea class="form-control rounded-3" id="formMessage" rows="4" required placeholder="Descreva brevemente a necessidade da sua empresa..."></textarea>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-gold px-4 py-2">Enviar Mensagem</button>
+                  <button type="submit" class="btn btn-gold btn-lg rounded-pill w-100 fw-bold">
+                    <i class="bi bi-send-fill me-2"></i> Enviar Mensagem
+                  </button>
                 </div>
               </div>
             </form>
@@ -382,22 +804,184 @@
     </div>
   </section>
 
-  <!-- RODAPÉ -->
-  <footer class="bg-navy text-white py-4 border-top border-secondary">
-    <div class="container text-center text-md-between d-flex flex-column flex-md-row align-items-center gap-3">
-      <div>
-        <p class="mb-0 opacity-75">&copy; Accord Contabilidade e Auditoria S/S. Todos os direitos reservados.</p>
-        <small class="text-gold">CNPJ: 10.664.588/0001-31 | CRC CE-000737/O</small>
+  <!-- MAP INTEGRATION PLACEHOLDER -->
+  <section class="p-0 border-top">
+    <div class="w-100" style="height: 350px; background-color: #e5e3df; position: relative;">
+      <iframe title="Mapa do local" class="w-100 h-100 border-0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=Rua%20Jaime%20Pinheiro%2021%20Patriolino%20Ribeiro%20Fortaleza%20CE&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy-gradient text-white pt-5 pb-4 border-top border-white border-opacity-10">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-white border-opacity-10">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="bg-gold-gradient text-white rounded-3 p-2">
+              <i class="bi bi-bank2 fs-4"></i>
+            </div>
+            <div>
+              <span class="fw-bold h5 text-white mb-0 d-block">ACCORD</span>
+              <span class="text-gold-light small" style="font-size: 0.7rem; letter-spacing: 1px;">CONTABILIDADE & AUDITORIA</span>
+            </div>
+          </div>
+          <p class="text-light opacity-75 small">
+            Soluções contábeis e de auditoria com foco em transparência, eficiência fiscal e crescimento sustentável para empresas desde 2009.
+          </p>
+          <span class="badge bg-gold text-dark font-mono">CRC CE-000737/O</span>
+        </div>
+
+        <div class="col-6 col-lg-2 ms-lg-auto">
+          <h4 class="h6 fw-bold text-gold-light mb-3">Navegação</h4>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="#inicio" class="text-light opacity-75 text-decoration-none hover-gold">Início</a></li>
+            <li class="mb-2"><a href="#diagnostico" class="text-light opacity-75 text-decoration-none hover-gold">Simulador Fiscal</a></li>
+            <li class="mb-2"><a href="#servicos" class="text-light opacity-75 text-decoration-none hover-gold">Serviços</a></li>
+            <li class="mb-2"><a href="#sobre" class="text-light opacity-75 text-decoration-none hover-gold">Sobre Nós</a></li>
+            <li><a href="#contato" class="text-light opacity-75 text-decoration-none hover-gold">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h4 class="h6 fw-bold text-gold-light mb-3">Dados da Empresa</h4>
+          <ul class="list-unstyled small text-light opacity-75">
+            <li class="mb-2"><strong>CNPJ:</strong> 10.664.588/0001-31</li>
+            <li class="mb-2"><strong>Razão Social:</strong> Accord Contabilidade e Auditoria S/S</li>
+            <li class="mb-2"><strong>Sede:</strong> Fortaleza - Ceará</li>
+            <li><strong>Situação:</strong> Ativa (Desde 2009)</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <a href="#inicio" class="text-light text-decoration-none me-3">Início</a>
-        <a href="#servicos" class="text-light text-decoration-none me-3">Serviços</a>
-        <a href="#sobre" class="text-light text-decoration-none">Sobre</a>
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 small text-light opacity-75 gap-2">
+        <div>
+          &copy; <span id="yearSpan"></span> Accord Contabilidade e Auditoria S/S. Todos os direitos reservados.
+        </div>
+        <div>
+          Fortaleza - CE | Desenvolvido com Bootstrap 5
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- Scroll To Top Button -->
+  <button id="btnScrollTop" onclick="scrollToTop()" class="btn btn-gold" aria-label="Voltar ao topo">
+    <i class="bi bi-arrow-up fs-5"></i>
+  </button>
+
+  <!-- Notification Toast Message -->
+  <div id="customToast" class="toast-custom bg-navy-gradient text-white p-3 shadow-lg border border-gold">
+    <div class="d-flex align-items-center gap-3">
+      <i class="bi bi-check-circle-fill text-gold fs-4"></i>
+      <div>
+        <h4 class="h6 mb-0 fw-bold" id="toastTitle">Sucesso!</h4>
+        <small class="opacity-90" id="toastBody">Sua mensagem foi registrada.</small>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Set Current Year
+    document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+    // Scroll to Top visibility
+    window.addEventListener('scroll', function() {
+      const btn = document.getElementById('btnScrollTop');
+      if (window.scrollY > 300) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Diagnostic Calculator Logic
+    function calculateDiagnosis() {
+      const segment = document.getElementById('calcSegment').value;
+      const revenue = document.getElementById('calcRevenue').value;
+      const resultBox = document.getElementById('calcResult');
+      
+      const resRegime = document.getElementById('resRegime');
+      const resTitle = document.getElementById('resTitle');
+      const resDesc = document.getElementById('resDesc');
+      const resServices = document.getElementById('resServices');
+
+      let regime = 'Simples Nacional';
+      let title = 'Assessoria Contábil para PME';
+      let desc = '';
+      let tags = [];
+
+      if (revenue === 'mei') {
+        regime = 'MEI / Simples';
+        title = 'Regularização e Transição MEI';
+        desc = 'Recomendado acompanhamento de faturamento para evitar desenquadramento e garantir escrituração de distribuição de lucros isenta.';
+        tags = ['Declaração Anual MEI', 'Contabilidade Simplificada', 'Emissão de Notas'];
+      } else if (revenue === 'micro') {
+        regime = 'Simples Nacional Anexo III / V';
+        title = 'Gestão Contábil de Alta Eficiência';
+        desc = 'Enquadramento ideal no Simples Nacional com cálculo de Fator R para redução da alíquota efetiva de imposto de renda e CSLL.';
+        tags = ['Cálculo de Fator R', 'Folha de Pagamento', 'Balancetes Mensais'];
+      } else if (revenue === 'pequena') {
+        regime = 'Simples Nacional / Presumido';
+        title = 'Planejamento Tributário Consultivo';
+        desc = 'Análise comparativa contínua entre Simples Nacional e Lucro Presumido para otimizar encargos previdenciários e impostos federais.';
+        tags = ['BPO Financeiro/Contábil', 'Auditoria Fiscal Preventiva', 'Demonstrativo de Resultados'];
+      } else {
+        regime = 'Lucro Presumido / Real';
+        title = 'Auditoria & Contabilidade Corporativa';
+        desc = 'Plano avançado com auditoria de balanço, controle rigoroso de créditos tributários e acompanhamento de auditoria independente.';
+        tags = ['Auditoria Independente', 'SPED Completo', 'Planejamento Tributário Avançado'];
+      }
+
+      resRegime.textContent = regime;
+      resTitle.textContent = title;
+      resDesc.textContent = desc;
+
+      resServices.innerHTML = tags.map(t => `<span class="badge bg-gold text-dark fs-7">${t}</span>`).join(' ');
+
+      resultBox.classList.remove('d-none');
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Contact Action from Calculator
+    function contactFromCalc() {
+      const segment = document.getElementById('calcSegment').value || 'Não informado';
+      const revenue = document.getElementById('calcRevenue').value || 'Não informado';
+      const messageText = `Olá, realizei o diagnóstico no site para o segmento (${segment}) e faturamento (${revenue}). Gostaria de uma proposta de serviços.`;
+      
+      const formMsg = document.getElementById('formMessage');
+      if (formMsg) {
+        formMsg.value = messageText;
+        document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Handle Contact Form Submission
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('formName').value;
+
+      showToast('Mensagem Enviada!', `Obrigado ${name}, nossa equipe entrará em contato em breve.`);
+      document.getElementById('contactForm').reset();
+    }
+
+    // Custom Toast Notification Helper
+    function showToast(title, message) {
+      const toast = document.getElementById('customToast');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastBody').textContent = message;
+
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 4000);
+    }
+  </script>
 </body>
 </html>
